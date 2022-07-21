@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+
+
 const destinationSchema = new Schema({
     airport: {
         type: String,
@@ -27,7 +29,11 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: function() {return (new Date().getFullYear()+1);
+        default: function() {
+            let date = new Date();
+            let year = date.getUTCFullYear();
+            date.setUTCFullYear(year+1);
+            return date;
         }
     }, 
     destinations: [destinationSchema]

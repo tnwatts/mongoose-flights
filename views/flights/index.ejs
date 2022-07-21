@@ -1,15 +1,17 @@
-<h1>Flights!</h1>
 <%- include("../partials/header") %>
 
 
-<h1>Flight List</h1>
-  <table>
+  <table id="list">
     <thead>
       <tr>
+        <th>Flight</th>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Departure</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <!-- Write the line of EJS to iterate over movies using forEach -->
       <% flights.forEach(function(f) { %>
         <tr>
           <td><%= f.flightNo %></td>
@@ -19,7 +21,8 @@
           <td><a href="/flights/<%= f._id %>">Details</a></td>
         </tr>
         <% }); %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    
 
 <%- include("../partials/footer") %>
